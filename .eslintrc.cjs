@@ -1,4 +1,5 @@
 module.exports = {
+  extends: ["react-app", "react-app/jest"],
   root: true,
   env: { browser: true, es2020: true },
   extends: [
