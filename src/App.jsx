@@ -15,6 +15,7 @@ const App = () => {
 	// }, 1000);
 
   // Trying to figure out how time works and where I could get my seconds, minutes and hours from.
+  // Milliseconds in a day = 86,400,000
   const date = new Date()
   console.log("this is my date", date, typeof date, "ceci est le type ")
 
