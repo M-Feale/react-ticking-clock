@@ -7,13 +7,22 @@ const App = () => {
 	const [minutes, setMinutes] = useState(0);
 	const [hours, setHours] = useState(0);
 
+	let minuteDegrees = 180 + minutes * 6;
+	let hourDegrees = 180 + hours * 30 + (minutes/60 * 30)
+
 	const updateTime = () => {
 		const now = new Date();
 		setSeconds(now.getSeconds());
-		setMinutes(now.getMinutes());
-		setHours(now.getHours());
-	};
 
+		//Circle has 360 degrees meaning that every minute, the minute hand must move 6 degrees.
+		setMinutes(now.getMinutes());
+	
+
+		// Clock only displays 12 hours so every hour, the hour hand moves 30 degrees. Counterpoint, on a real clock, hour hand moves progressively...
+		setHours(now.getHours());
+		
+	};
+	
 	setInterval(updateTime, 1000);
 
 	return (
@@ -25,8 +34,8 @@ const App = () => {
 			</Box>
 			<img src={clock} />
 			<ClockFace>
-				<Hand className="minute"></Hand>
-				<Hand className="hour"></Hand>
+				<Hand className="minute" $travel={minuteDegrees}></Hand>
+				<Hand className="hour" $travel={hourDegrees}></Hand>
 			</ClockFace>
 		</>
 	);
@@ -50,17 +59,17 @@ const Hand = styled.div`
 	position: absolute;
 	left: calc(50% - 5px);
 	top: calc(50% - 5px);
-	
 	transform-origin: 50% 5px;
+
 	&.minute {
 		height: 100px;
 		background-color: mediumaquamarine;
-		transform: rotate(180deg);
+		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 	&.hour {
 		height: 70px;
 		background-color: hotpink;
-		transform: rotate(180deg);
+		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 `;
 
