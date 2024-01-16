@@ -1,30 +1,32 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import styled from "styled-components";
 
 const App = () => {
 	const [seconds, setSeconds] = useState(0);
 	const [minutes, setMinutes] = useState(0);
 	const [hours, setHours] = useState(0);
 
-	const now = new Date()
-	console.log("this is now", now, typeof now, "ceci est le type ")
-
-	useEffect(() => {
-	setSeconds(now.getSeconds())
-	setMinutes(now.getMinutes())
-	setHours(now.getHours())
-	}, [])
-
 	const updateTime = () => {
-		// should I really create a function that sets time every 1000 seconds ?
-	}
+		const now = new Date();
+		setSeconds(now.getSeconds());
+		setMinutes(now.getMinutes());
+		setHours(now.getHours());
+	};
+
+	setInterval(updateTime, 1000);
 
 	return (
-		<>
-		<div>Time in second = {seconds}</div>
-		<div>Time in minutes = {minutes}</div>
-		<div>Time in hours = {hours}</div>
-		</>
+		<Box>
+			<div>Time in second = {seconds}</div>
+			<div>Time in minutes = {minutes}</div>
+			<div>Time in hours = {hours}</div>
+		</Box>
 	);
 };
+
+const Box = styled.div`
+	color: white;
+	background-color: purple;
+`;
 
 export default App;
