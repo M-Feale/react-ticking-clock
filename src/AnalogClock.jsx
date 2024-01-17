@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import clock from "../src/assets/edited_grandfather_clock.png";
 
-const AnalogClock = ({time}) => {
-
+const AnalogClock = ({ time }) => {
 	// We want either X degrees or -X degrees depending on if the seconds is odd or even. Resolves to -X when seconds is even and X when it's odd.
 	let secondDegrees = 3 * ((time.seconds % 2) * 2 - 1);
 	//Circle has 360 degrees meaning that every minute, the minute hand must move 6 degrees.
@@ -13,31 +12,21 @@ const AnalogClock = ({time}) => {
 	return (
 		time.seconds != null && (
 			<>
-				<Box>
-					<div>Time in second = {time.seconds}</div>
-					<div>Time in minutes = {time.minutes}</div>
-					<div>Time in hours = {time.hours}</div>
-				</Box>
 				<ClockFrame>
 					<ClockImage src={clock} />
 					<SecondsHand className="second" $travel={secondDegrees}>
 						<Weight></Weight>
 					</SecondsHand>
-				</ClockFrame>
 
-				<ClockFace>
-					<Hand className="minute" $travel={minuteDegrees}></Hand>
-					<Hand className="hour" $travel={hourDegrees}></Hand>
-				</ClockFace>
+					<ClockFace>
+						<Hand className="minute" $travel={minuteDegrees}></Hand>
+						<Hand className="hour" $travel={hourDegrees}></Hand>
+					</ClockFace>
+				</ClockFrame>
 			</>
 		)
 	);
 };
-
-const Box = styled.div`
-	color: white;
-	background-color: purple;
-`;
 
 const ClockFrame = styled.div`
 	position: relative;
@@ -81,12 +70,13 @@ const Weight = styled.div`
 const ClockFace = styled.div`
 	height: 80px;
 	width: 80px;
-	background-color: white;
-	position: relative;
+	background-color: yellow;
+	position: absolute;
 	border-radius: 50%;
 
-	top: -608px;
-	left: 107px;
+    top: 196px;
+    left: 107px;
+
 `;
 
 const Hand = styled.div`
@@ -100,12 +90,12 @@ const Hand = styled.div`
 
 	&.minute {
 		height: 40px;
-		background-color: black;
+		background-color: aquamarine;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 	&.hour {
 		height: 30px;
-		background-color: black;
+		background-color: hotpink;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 `;
