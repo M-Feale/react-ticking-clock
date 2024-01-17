@@ -31,7 +31,11 @@ const App = () => {
 					<div>Time in minutes = {minutes}</div>
 					<div>Time in hours = {hours}</div>
 				</Box>
-				<ClockFrame src={clock} />
+				<ClockFrame>
+					<ClockImage src={clock} />
+					<SecondsHand></SecondsHand>
+				</ClockFrame>
+				
 				<ClockFace>
 					<Hand className="minute" $travel={minuteDegrees}></Hand>
 					<Hand className="hour" $travel={hourDegrees}></Hand>
@@ -46,8 +50,26 @@ const Box = styled.div`
 	background-color: purple;
 `;
 
-const ClockFrame = styled.img`
+const ClockFrame = styled.div`
 	position: relative;
+	background-color: transparent;
+`;
+
+const ClockImage = styled.img`
+	position: relative;
+`;
+
+const SecondsHand = styled.div`
+	width: 10px;
+	height: 260px;
+	background-color: green;
+	position: absolute;
+
+	top: 313px;
+	left: 143px;
+
+	transform: rotate(0deg);
+	transform-origin: 50% -70px;
 `;
 
 const ClockFace = styled.div`
