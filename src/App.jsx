@@ -1,6 +1,9 @@
 import { useState } from "react";
+import styled from "styled-components";
 
 import AnalogClock from "./AnalogClock";
+import DigitalClock from "./DigitalClock";
+
 
 const App = () => {
 	const [time, setTime] = useState({
@@ -21,8 +24,17 @@ const App = () => {
 	setInterval(updateTime, 1000);
 
 	return (
-		<AnalogClock time={time} />
-	) 
+		<TimeContainer>
+			<AnalogClock time={time} />
+			<DigitalClock time={time} />
+		</TimeContainer>
+	);
 };
+
+const TimeContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+`;
 
 export default App;
