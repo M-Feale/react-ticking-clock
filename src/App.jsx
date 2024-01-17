@@ -7,9 +7,8 @@ const App = () => {
 	const [minutes, setMinutes] = useState(0);
 	const [hours, setHours] = useState(0);
 
-	// We want either X degrees or -X degrees depending on if the seconds is odd or even. Results to -X when seconds is even and X when it's odd.
+	// We want either X degrees or -X degrees depending on if the seconds is odd or even. Resolves to -X when seconds is even and X when it's odd.
 	let secondDegrees = 3 * ((seconds % 2) * 2 - 1);
-
 	//Circle has 360 degrees meaning that every minute, the minute hand must move 6 degrees.
 	let minuteDegrees = 180 + minutes * 6;
 	// Clock only displays 12 hours so every hour is 30 degrees. The hour hand then moves proportionally according to how many minutes have elapsed.
@@ -17,11 +16,8 @@ const App = () => {
 
 	const updateTime = () => {
 		const now = new Date();
-
 		setSeconds(now.getSeconds());
-
 		setMinutes(now.getMinutes());
-
 		setHours(now.getHours());
 	};
 
