@@ -70,13 +70,11 @@ const Weight = styled.div`
 const ClockFace = styled.div`
 	height: 80px;
 	width: 80px;
-	background-color: yellow;
+	background-color: white;
 	position: absolute;
 	border-radius: 50%;
-
     top: 196px;
     left: 107px;
-
 `;
 
 const Hand = styled.div`
@@ -90,12 +88,12 @@ const Hand = styled.div`
 
 	&.minute {
 		height: 40px;
-		background-color: aquamarine;
+		background-color: black;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 	&.hour {
 		height: 30px;
-		background-color: hotpink;
+		background-color: black;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 `;
