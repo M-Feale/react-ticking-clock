@@ -3,9 +3,9 @@ import styled from "styled-components";
 import clock from "../src/assets/edited_grandfather_clock.png";
 
 const App = () => {
-	const [seconds, setSeconds] = useState(0);
-	const [minutes, setMinutes] = useState(0);
-	const [hours, setHours] = useState(0);
+	const [seconds, setSeconds] = useState(null);
+	const [minutes, setMinutes] = useState(null);
+	const [hours, setHours] = useState(null);
 
 	// We want either X degrees or -X degrees depending on if the seconds is odd or even. Resolves to -X when seconds is even and X when it's odd.
 	let secondDegrees = 3 * ((seconds % 2) * 2 - 1);
@@ -24,7 +24,7 @@ const App = () => {
 	setInterval(updateTime, 1000);
 
 	return (
-		minutes > 0 && (
+		minutes != null && (
 			<>
 				{/* <Box>
 					<div>Time in second = {seconds}</div>
@@ -74,7 +74,7 @@ const ClockImage = styled.img`
 const SecondsHand = styled.div`
 	width: 16px;
 	height: 300px;
-	background-color: green;
+	background-color: black;
 	position: absolute;
 
 	top: 313px;
@@ -89,7 +89,7 @@ const Weight = styled.div`
 	height: 60px;
 	width: 60px;
 	border-radius: 50%;
-	background-color: red;
+	background-color: black;
 	position: absolute;
 	left: -22px;
 	top: 245px;
@@ -98,7 +98,7 @@ const Weight = styled.div`
 const ClockFace = styled.div`
 	height: 80px;
 	width: 80px;
-	background-color: yellow;
+	background-color: white;
 	position: relative;
 	border-radius: 50%;
 
@@ -117,12 +117,12 @@ const Hand = styled.div`
 
 	&.minute {
 		height: 40px;
-		background-color: mediumaquamarine;
+		background-color: black;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 	&.hour {
 		height: 30px;
-		background-color: hotpink;
+		background-color: black;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 `;
