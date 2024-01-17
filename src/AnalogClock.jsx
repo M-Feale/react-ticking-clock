@@ -31,16 +31,10 @@ const AnalogClock = ({ time }) => {
 const ClockFrame = styled.div`
 	position: relative;
 	background-color: transparent;
-	/* height: 100vh;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center; */
 `;
 
 const ClockImage = styled.img`
 	position: relative;
-	/* max-height: 90%; */
 `;
 
 const SecondsHand = styled.div`
