@@ -30,11 +30,11 @@ const App = () => {
 	return (
 		minutes > 0 && (
 			<>
-				<Box>
+				{/* <Box>
 					<div>Time in second = {seconds}</div>
 					<div>Time in minutes = {minutes}</div>
 					<div>Time in hours = {hours}</div>
-				</Box>
+				</Box> */}
 				<ClockFrame>
 					<ClockImage src={clock} />
 					<SecondsHand
@@ -54,28 +54,35 @@ const App = () => {
 	);
 };
 
-const Box = styled.div`
-	color: white;
-	background-color: purple;
-`;
+// const Box = styled.div`
+// 	color: white;
+// 	background-color: purple;
+// `;
 
 const ClockFrame = styled.div`
 	position: relative;
 	background-color: transparent;
+	/* height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center; */
 `;
 
 const ClockImage = styled.img`
 	position: relative;
+	/* max-height: 90%; */
+
 `;
 
 const SecondsHand = styled.div`
-	width: 10px;
+	width: 16px;
 	height: 300px;
 	background-color: green;
 	position: absolute;
 
 	top: 313px;
-	left: 143px;
+	left: 139px;
 
 	transform: ${(props) => `rotate(${props.$travel}deg)`};
 	transform-origin: 50% -150px;
@@ -88,35 +95,37 @@ const Weight = styled.div`
 	border-radius: 50%;
 	background-color: red;
 	position: absolute;
-	left: -25px;
+	left: -22px;
 	top: 245px;
 `;
 
 const ClockFace = styled.div`
-	height: 100px;
-	width: 100px;
+	height: 80px;
+	width: 80px;
 	background-color: yellow;
 	position: relative;
 	border-radius: 50%;
 
-	top: -618px;
-	left: 97px;
+	top: -608px;
+	left: 107px;
 `;
 
 const Hand = styled.div`
-	width: 10px;
+	width: 16px;
+	border-radius: 8px;
+
 	position: absolute;
 	left: calc(50% - 5px);
 	top: calc(50% - 5px);
 	transform-origin: 50% 5px;
 
 	&.minute {
-		height: 50px;
+		height: 40px;
 		background-color: mediumaquamarine;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 	&.hour {
-		height: 35px;
+		height: 30px;
 		background-color: hotpink;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
