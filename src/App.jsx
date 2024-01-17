@@ -7,8 +7,8 @@ const App = () => {
 	const [minutes, setMinutes] = useState(0);
 	const [hours, setHours] = useState(0);
 
-	// Starting at 0 degrees, travels 4 degrees one way in a half a second, hits the "second" at the apex and travels 8 degrees the other way in a second. 30 odd numbers, 30 even numbers between 0 and 59 (possible seconds). Even on the left, odd on the right ?
-	let secondDegrees;
+	// We want either X degrees or -X degrees depending on if the seconds is odd or even. Results to -X when seconds is even and X when it's odd.
+	let secondDegrees = 3 * ((seconds % 2) * 2 - 1);
 
 	//Circle has 360 degrees meaning that every minute, the minute hand must move 6 degrees.
 	let minuteDegrees = 180 + minutes * 6;
@@ -40,7 +40,9 @@ const App = () => {
 					<SecondsHand
 						className="second"
 						$travel={secondDegrees}
-					></SecondsHand>
+					>
+						<Weight></Weight>
+					</SecondsHand>
 				</ClockFrame>
 
 				<ClockFace>
@@ -68,15 +70,26 @@ const ClockImage = styled.img`
 
 const SecondsHand = styled.div`
 	width: 10px;
-	height: 260px;
+	height: 300px;
 	background-color: green;
 	position: absolute;
 
 	top: 313px;
 	left: 143px;
 
-	transform: rotate(4deg);
-	transform-origin: 50% -70px;
+	transform: ${(props) => `rotate(${props.$travel}deg)`};
+	transform-origin: 50% -150px;
+	transition: transform ease-in-out 1s;
+`;
+
+const Weight = styled.div`
+	height: 60px;
+	width: 60px;
+	border-radius: 50%;
+	background-color: red;
+	position: absolute;
+	left: -25px;
+	top: 245px;
 `;
 
 const ClockFace = styled.div`
