@@ -17,7 +17,7 @@ const AnalogClock = ({ time }) => {
 						<ClockImage src={clock} />
 						<SecondsHand
 							className="second"
-							// $travel={secondDegrees}
+							$travel={secondDegrees}
 						>
 							<Weight></Weight>
 						</SecondsHand>
@@ -51,12 +51,12 @@ const ClockImage = styled.img`
 
 const SecondsHand = styled.div`
 	width: 13px;
-	height: 300px;
+	height: 200px;
 	background-color: green;
 	position: absolute;
 
-	top: 313px;
-	left: 139px;
+	top: 244px;
+	left: 111px;
 
 	transform: ${(props) => `rotate(${props.$travel}deg)`};
 	transform-origin: 50% -150px;
@@ -64,13 +64,13 @@ const SecondsHand = styled.div`
 `;
 
 const Weight = styled.div`
-	height: 60px;
-	width: 60px;
+	height: 50px;
+	width: 50px;
 	border-radius: 50%;
 	background-color: red;
 	position: absolute;
-	left: -22px;
-	top: 245px;
+	left: -18px;
+	top: 190px;
 `;
 
 const ClockFace = styled.div`
