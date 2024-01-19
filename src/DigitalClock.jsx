@@ -15,6 +15,7 @@ const DigitalClock = ({ time }) => {
 const Box = styled.div`
 	color: white;
 	background-color: purple;
+    font-family: "Orbitron", sans-serif;
 `;
 
 export default DigitalClock;
