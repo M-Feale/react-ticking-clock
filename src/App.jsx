@@ -41,6 +41,7 @@ const TimeContainer = styled.div`
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
+	height: 100vh;
 `;
 
 export default App;
