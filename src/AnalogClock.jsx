@@ -13,17 +13,23 @@ const AnalogClock = ({ time }) => {
 		time.seconds != null && (
 			<>
 				<ClockFrame>
-					<ClockImage src={clock} />
-					<SecondsHand className="second" 
-                    // $travel={secondDegrees}
-                    >
-						<Weight></Weight>
-					</SecondsHand>
+					<div>
+						<ClockImage src={clock} />
+						<SecondsHand
+							className="second"
+							// $travel={secondDegrees}
+						>
+							<Weight></Weight>
+						</SecondsHand>
 
-					<ClockFace>
-						<Hand className="minute" $travel={minuteDegrees}></Hand>
-						<Hand className="hour" $travel={hourDegrees}></Hand>
-					</ClockFace>
+						<ClockFace>
+							<Hand
+								className="minute"
+								$travel={minuteDegrees}
+							></Hand>
+							<Hand className="hour" $travel={hourDegrees}></Hand>
+						</ClockFace>
+					</div>
 				</ClockFrame>
 			</>
 		)
@@ -33,11 +39,14 @@ const AnalogClock = ({ time }) => {
 const ClockFrame = styled.div`
 	position: relative;
 	background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const ClockImage = styled.img`
 	position: relative;
-    max-height: 100%;
+	height: 640px;
 `;
 
 const SecondsHand = styled.div`
@@ -65,14 +74,14 @@ const Weight = styled.div`
 `;
 
 const ClockFace = styled.div`
-	height: 80px;
-	width: 80px;
+	height: 60px;
+	width: 60px;
 	background-color: yellow;
 	position: absolute;
 	border-radius: 50%;
 
-    top: 157px;
-    left: 83px;
+	top: 158px;
+	left: 87px;
 `;
 
 const Hand = styled.div`
@@ -85,12 +94,12 @@ const Hand = styled.div`
 	transform-origin: 50% 5px;
 
 	&.minute {
-		height: 40px;
+		height: 34px;
 		background-color: aquamarine;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 	&.hour {
-		height: 30px;
+		height: 26px;
 		background-color: hotpink;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
