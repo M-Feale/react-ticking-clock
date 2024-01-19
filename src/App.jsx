@@ -15,9 +15,9 @@ const App = () => {
 	const updateTime = () => {
 		const now = new Date();
 		setTime({
-			seconds: now.getSeconds(),
-			minutes: now.getMinutes(),
-			hours: now.getHours(),
+			seconds: now.getSeconds().toLocaleString(undefined, {minimumIntegerDigits: 2}),
+			minutes: now.getMinutes().toLocaleString(undefined, {minimumIntegerDigits: 2}),
+			hours: now.getHours().toLocaleString(undefined, {minimumIntegerDigits: 2}),
 		});
 	};
 
