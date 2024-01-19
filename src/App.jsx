@@ -35,6 +35,7 @@ const TimeContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
+    max-height: 95vh;
 `;
 
 export default App;
