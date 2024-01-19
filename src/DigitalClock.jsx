@@ -19,6 +19,13 @@ const DigitalClock = ({ time }) => {
 	);
 };
 
+const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+
 const Casing = styled.div`
 	background-color: black;
 	width: 270px;
