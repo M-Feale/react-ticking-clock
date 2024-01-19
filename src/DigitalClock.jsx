@@ -11,7 +11,6 @@ const DigitalClock = ({ time }) => {
 						<Time>{time.minutes}</Time>
 						<Colon>:</Colon>
 						<Time>{time.seconds}</Time>
-						{/* {time.hours}:{time.minutes}:{time.seconds} */}
 					</Display>
 				</Casing>
 			</Wrapper>
@@ -24,7 +23,6 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
 `;
-
 
 const Casing = styled.div`
 	background-color: black;
