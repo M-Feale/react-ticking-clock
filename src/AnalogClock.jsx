@@ -52,7 +52,7 @@ const ClockImage = styled.img`
 const SecondsHand = styled.div`
 	width: 13px;
 	height: 200px;
-	background-color: green;
+	background-color: black;
 	position: absolute;
 
 	top: 244px;
@@ -67,7 +67,7 @@ const Weight = styled.div`
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
-	background-color: red;
+	background-color: black;
 	position: absolute;
 	left: -18px;
 	top: 190px;
@@ -76,7 +76,7 @@ const Weight = styled.div`
 const ClockFace = styled.div`
 	height: 60px;
 	width: 60px;
-	background-color: yellow;
+	background-color: white;
 	position: absolute;
 	border-radius: 50%;
 
@@ -95,12 +95,12 @@ const Hand = styled.div`
 
 	&.minute {
 		height: 34px;
-		background-color: aquamarine;
+		background-color: black;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 	&.hour {
 		height: 26px;
-		background-color: hotpink;
+		background-color: black;
 		transform: ${(props) => `rotate(${props.$travel}deg)`};
 	}
 `;
